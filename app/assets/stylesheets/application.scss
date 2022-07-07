@@ -11,3 +11,141 @@
 
 // = require_tree .
 // = require_self
+
+header, footer {
+  color: var(--white);
+  background: var(--black);
+
+  .header-row, .footer-row {
+    padding: 10px 0;
+    justify-content: space-between;
+  }
+}
+
+nav {
+  padding: 7px 0;
+  color: var(--black);
+  background: var(--blue);
+
+  .menu-part {
+    margin: 0 var(--offset);
+    width: calc(100% / 2 - var(--offset) * 2);
+
+    .menu-item {
+      background: var(--black);
+      width: calc(100% / 3 - var(--offset) * 2);
+    }
+
+    .left-menu {
+      justify-content: flex-start;
+    }
+  
+    .right-menu {
+      justify-content: flex-end;
+    }
+  }
+
+  a {
+    padding: 3px 0;
+    display: block;
+    text-align: center;
+    color: var(--white);
+
+    &:hover {
+      color: var(--blue);
+    }
+  }
+}
+
+main {
+  padding: 10px 0;
+
+  a {
+    font-weight: bold;
+    color: var(--black);
+
+    &:hover {
+      color: var(--blue);
+    }
+  }
+
+  .message {
+    padding: 15px 15px;
+    margin: 15px 0;
+    border-radius: 7px;
+  }
+
+  .info {
+    color: var(--dark-grey);
+    background: var(--light-grey);
+    border: 1px solid var(--grey);
+  }
+
+  .alert {
+    color: var(--dark-red);
+    background: var(--light-red);
+    border: 1px solid var(--red);
+  }
+
+  .notice {
+    color: var(--dark-green);
+    background: var(--light-green);
+    border: 1px solid var(--green);
+  }
+
+  .scroll-wrapper {
+    overflow-x: auto;
+
+    margin: 10px 0;
+    padding: 10px 0;
+
+    ul, ol {
+      a {
+        white-space: nowrap;
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      tr {
+        &:nth-child(odd){
+          background: var(--grey);
+        }
+
+        &:nth-child(even){
+          background: var(--white);
+        }
+      }
+
+      th {
+        padding: 5px;
+        text-align: left;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .total {
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 1000px) {
+  nav .menu-part .menu-item {
+    width: calc(100% / 1 - var(--offset) * 2);
+  }
+}
+
+@media (max-width: 400px) {
+  nav .menu-part {
+    width: calc(100% / 1 - var(--offset) * 2);
+  }
+}
+
+@media (max-width: 199px) {
+  body {
+    display: none;
+  }
+}

@@ -1,0 +1,45 @@
+// Rails automatically add <br> for fields with an error
+div.field_with_errors + br {
+  display: none
+}
+
+form {
+  .field {
+    margin: 5px 0;
+
+    input[type=text], input[type=email], input[type=password], input[type=file], select {
+      width: 30%;
+      box-sizing: border-box;
+    }
+  }
+
+  .actions {
+    margin: 5px 0;
+
+    input[type=submit] {
+      padding: 5px 20px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  form {
+    .field {
+      input[type=text], input[type=email], input[type=password], input[type=file], select {
+        width: 50%;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+@media (max-width: 300px) {
+  form {
+    .field {
+      input[type=text], input[type=email], input[type=password], input[type=file], select {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  }
+}

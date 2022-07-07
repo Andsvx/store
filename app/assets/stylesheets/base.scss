@@ -1,0 +1,87 @@
+:root {
+  --offset: 5px;
+
+  --red: #e41d23;
+  --blue: #2c73b8;
+  --white: #ffffff;
+  --black: #212a31;
+
+  --grey: #d3d6d8;
+  --dark-grey: #41464b;
+  --light-grey: #e2e3e5;
+
+  --red: #f5c2c7;
+  --dark-red: #842029;
+  --light-red: #f8d7da;
+
+  --green: #badbcc;
+  --dark-green: #0f5132;
+  --light-green: #d1e7dd;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 calc(var(--offset) + 5px);
+  max-width: 1280px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(var(--offset) * -1);
+}
+
+.col {
+  margin: var(--offset);
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 15px;
+  color: var(--black);
+}
+
+a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, li {
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+
+  ul, ol {
+    padding: revert;
+  }
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+h2 {
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 400px) {
+  h1, h2 {
+    margin: 5px 0;
+    font-size: 100%;
+  }
+}
