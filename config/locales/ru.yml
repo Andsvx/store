@@ -1,0 +1,82 @@
+ru:
+  errors:
+    format: '%{attribute} - это поле %{message}'
+
+  common:
+    text_no: 'Нет'
+    text_yes: 'Да'
+    save: 'Сохранить'
+    delete: 'Удалить'
+    change: 'Изменить'
+    total: 'Всего'
+
+  layouts:
+    application:
+      administration: 'Admin'
+      registration: 'Регистрация'
+      entrance: 'Вход'
+      exit: 'Выход'
+      cart: 'Корзина'
+      items: 'Товары'
+      categories: 'Категории'
+      orders: 'Заказы'
+
+  admin:
+    index:
+      title: 'Администрирование'
+      items: 'Товары'
+      categories: 'Категории'
+      orders: 'Заказы'
+      users: 'Пользователи'
+    items:
+      title: 'Товары'
+      new_product: 'Добавить новый товар'
+    categories:
+      title: 'Категории'
+      new_category: 'Добавить новую категорию'
+    orders:
+      title: 'Заказы'
+    users:
+      title: 'Пользователи'
+
+  items:
+    index:
+      title: 'Все товары'
+    show:
+      add_to_cart: 'Добавить в корзину'
+    new:
+      title: 'Создать новый товар'
+    edit:
+      title: 'Редактировать товар'
+    messages:
+      deleted: 'Товар удалён'
+
+  categories:
+    index:
+      title: 'Все категории'
+    new:
+      title: 'Создать новую категорию'
+    edit:
+      title: 'Редактировать категорию'
+    messages:
+      deleted: 'Категория удалена'
+
+  carts:
+    show:
+      title: 'Корзина'
+      empty: 'Ваша корзина пуста'
+      add_to_cart: '+'
+      remove_from_cart: '-'
+      place_an_order: 'Оформить заказ'
+
+  orders:
+    index:
+      title: 'Заказы'
+      empty: 'Список ваших заказов пуст'
+    show:
+      title: 'Заказ'
+    new:
+      title: 'Оформление заказа'
+      place_an_order: 'Оформить заказ'
+    messages:
+      cart_is_empty: 'Оформление заказа недоступно, пока ваша корзина пуста'

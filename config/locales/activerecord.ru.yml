@@ -1,0 +1,64 @@
+ru:
+  activerecord:
+
+    attributes:
+      user:
+        id: 'ID'
+        email: 'Email'
+        nickname: 'Nickname'
+        access_level: 'Уровень доступа'
+      item:
+        id: 'ID'
+        name: 'Название'
+        price: 'Цена'
+        description: 'Описание'
+        category: 'Категория'
+        category_id: 'Категория'
+        images: 'Изображения'
+      category:
+        id: 'ID'
+        name: 'Название'
+        parent_id: 'Родительская категория'
+      order:
+        id: 'ID'
+        address: 'Адрес'
+        phone_number: 'Номер телефона'
+      cart_position:
+        quantity: 'Количество'
+      order_position:
+        quantity: 'Количество'
+
+    errors:
+      messages:
+        nclusion: 'имеет непредусмотренное значение'
+        exclusion: 'имеет зарезервированное значение'
+        invalid: 'имеет неверное значение'
+        confirmation: 'не совпадает'
+        accepted: 'нужно подтвердить'
+        empty: 'не может быть пустым'
+        blank: 'не может быть пустым'
+        required: 'обязательно для заполнения'
+        too_long: 'слишком большой длины'
+        too_short: 'недостаточной длины'
+        wrong_length: 'неверной длины'
+        taken: 'не уникально'
+        not_a_number: 'не является числом'
+        greater_than: 'может иметь лишь значение большее %{count}'
+        greater_than_or_equal_to: 'может иметь лишь значение большее или равное %{count}'
+        equal_to: 'может иметь лишь значение, равное %{count}'
+        less_than: 'может иметь лишь значение меньшее чем %{count}'
+        less_than_or_equal_to: 'может иметь значение меньшее или равное %{count}'
+        odd: 'может иметь лишь четное значение'
+        even: 'может иметь лишь нечетное значение'
+        record_invalid: 'Возникли ошибки: %{errors}'
+      models:
+        item:
+          attributes:
+            base:
+              used_in_cart: 'Нельзя удалить товар, если он находится в корзине'
+              used_in_order: 'Нельзя удалить товар, если он находится в заказе'
+        category:
+          attributes:
+            base:
+              is_parent: 'Нельзя удалить категорию, если она является родительской'
+              includes_items: 'Нельзя удалить категорию, если в ней есть товары'

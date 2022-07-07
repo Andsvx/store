@@ -1,0 +1,16 @@
+<%= render 'shared/errors', object: @category %>
+
+<%= form_with model: @category, data: { turbo: false } do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :parent_id %><br>
+    <%= f.select(:parent_id, parent_id_options(@category)) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t('common.save') %>
+  </div>
+<% end %>

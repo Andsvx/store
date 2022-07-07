@@ -1,0 +1,23 @@
+<h1><%= t('.title') %></h1>
+
+<div class="scroll-wrapper">
+  <table>
+
+    <tr>
+      <th><%= User.human_attribute_name('id') %></th>
+      <th><%= User.human_attribute_name('email') %></th>
+      <th><%= User.human_attribute_name('access_level') %></th>
+      <th></th>
+    </tr>
+
+    <% @users.each do |i| %>
+      <tr>
+        <th><%= i.id %></th>
+        <th><%= i.email %></th>
+        <th><%= i.access_level %></th>
+        <th><%= link_to t('common.delete'), user_path(i), data: { 'turbo-method': :delete } %></th>
+      </tr>
+    <% end %>
+
+  </table>
+</div>

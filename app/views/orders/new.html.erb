@@ -1,0 +1,44 @@
+<h1><%= t('.title') %></h1>
+
+<div class="order">
+  <%= render 'shared/errors', object: @order %>
+
+  <div>
+    <% total_price = 0 %>
+
+    <div class="scroll-wrapper">
+      <table>
+        <tr>
+          <th><%= Item.human_attribute_name('name') %></th>
+          <th><%= Item.human_attribute_name('price') %></th>
+          <th><%= CartPosition.human_attribute_name('quantity') %></th>
+        </tr>
+        <% @cart_positions.each do |i| %>
+          <% total_price += i.item.price * i.quantity %>
+          <tr>
+            <th><%= link_to i.item.name, item_path(i.item) %></th>
+            <th><%= number_to_currency(i.item.price) %></th>
+            <th><%= i.quantity %></th>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <div class="total"><%= t('common.total') %>: <%= number_to_currency(total_price) %></div>
+  </div>
+
+  <%= form_with model: @order, data: { turbo: false } do |f| %>
+    <div class="field">
+      <%= f.label :address %><br>
+      <%= f.text_field :address %>
+    </div>
+    <div class="field">
+      <%= f.label :phone_number %><br>
+      <%= f.text_field :phone_number %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit t('.place_an_order') %>
+    </div>
+  <% end %>
+</div>

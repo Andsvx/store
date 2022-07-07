@@ -1,0 +1,25 @@
+<h1><%= t('.title') %></h1>
+
+<div class="scroll-wrapper">
+  <table>
+
+    <tr>
+      <th><%= Order.human_attribute_name('id') %></th>
+      <th><%= Order.human_attribute_name('address') %></th>
+      <th><%= Order.human_attribute_name('phone_number') %></th>
+      <th><%= User.human_attribute_name('email') %></th>
+      <th><%= User.human_attribute_name('nickname') %></th>
+    </tr>
+
+    <% @orders.each do |i| %>
+      <tr>
+        <th><%= link_to i.id, order_path(i) %></th>
+        <th><%= i.address %></th>
+        <th><%= i.phone_number %></th>
+        <th><%= i.user.email %></th>
+        <th><%= i.user.nickname %></th>
+      </tr>
+    <% end %>
+
+  </table>
+</div>

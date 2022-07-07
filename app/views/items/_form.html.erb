@@ -1,0 +1,46 @@
+<%= render 'shared/errors', object: @item %>
+
+<%= form_with model: @item, html: { multipart: true }, data: { turbo: false } do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.collection_select :category_id, Category.order(:name), :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :images %><br>
+
+    <% @item.images.each do |image| %>
+      <%= hidden_field :item, :images, multiple: true, value: image.identifier %>
+    <% end %>
+
+    <%= f.file_field :images, multiple: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t('common.save') %>
+  </div>
+<% end %>
+
+<div class="images">
+  <% @item.images.each_with_index do |image, index| %>
+
+    <%# Displaying only saved images %>
+    <% next if image.file.file.include?('/tmp/') %>
+
+    <div class="img-wrapper">
+      <%= image_tag image.url %>
+      <%= link_to t('common.delete'), item_image_path(@item, index), data: { 'turbo-method': :delete } %>
+    </div>
+  <% end %>
+</div>

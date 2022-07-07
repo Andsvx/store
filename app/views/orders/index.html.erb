@@ -1,0 +1,11 @@
+<h1><%= t('.title') %></h1>
+
+<div class="orders">
+  <% if @orders.empty? %>
+    <div><%= t('.empty') %></div>
+  <% else %>
+    <% @orders.each do |i| %>
+      <div class="order"><%= link_to_order(i) %></div>
+    <% end %>
+  <% end %>
+</div>

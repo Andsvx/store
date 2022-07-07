@@ -1,0 +1,27 @@
+<h1><%= t('.title') %></h1>
+
+<div><%= link_to t('.new_product'), new_item_path %></div>
+
+<div class="scroll-wrapper">
+  <table>
+
+    <tr>
+      <th><%= Item.human_attribute_name('id') %></th>
+      <th><%= Item.human_attribute_name('name') %></th>
+      <th><%= Item.human_attribute_name('price') %></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% @items.each do |i| %>
+      <tr>
+        <th><%= i.id %></th>
+        <th><%= link_to i.name, item_path(i) %></th>
+        <th><%= i.price %></th>
+        <th><%= link_to t('common.change'), edit_item_path(i) %></th>
+        <th><%= link_to t('common.delete'), item_path(i), data: { 'turbo-method': :delete } %></th>
+      </tr>
+    <% end %>
+
+  </table>
+</div>

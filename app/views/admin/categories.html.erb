@@ -1,0 +1,27 @@
+<h1><%= t('.title') %></h1>
+
+<div><%= link_to t('.new_category'), new_category_path %></div>
+
+<div class="scroll-wrapper">
+  <table>
+
+    <tr>
+      <th><%= Category.human_attribute_name('id') %></th>
+      <th><%= Category.human_attribute_name('name') %></th>
+      <th><%= Category.human_attribute_name('parent_id') %></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% @categories.each do |i| %>
+      <tr>
+        <th><%= i.id %></th>
+        <th><%= link_to i.name, category_path(i) %></th>
+        <th><%= i.parent_id %></th>
+        <th><%= link_to t('common.change'), edit_category_path(i) %></th>
+        <th><%= link_to t('common.delete'), category_path(i), data: { 'turbo-method': :delete } %></th>
+      </tr>
+    <% end %>
+
+  </table>
+</div>

@@ -1,0 +1,25 @@
+<h1><%= "#{t('.title')} № #{@order.id}" %></h1>
+
+<div class="order">
+  <% total_price = 0 %>
+
+  <div class="scroll-wrapper">
+    <table>
+      <tr>
+        <th><%= Item.human_attribute_name('name') %></th>
+        <th><%= Item.human_attribute_name('price') %></th>
+        <th><%= OrderPosition.human_attribute_name('quantity') %></th>
+      </tr>
+      <% @order.order_positions.each do |i| %>
+        <% total_price += i.item.price * i.quantity %>
+        <tr>
+          <th><%= link_to i.item.name, item_path(i.item) %></th>
+          <th><%= number_to_currency(i.item.price) %></th>
+          <th><%= i.quantity %></th>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="total"><%= t('common.total') %>: <%= number_to_currency(total_price) %></div>
+</div>

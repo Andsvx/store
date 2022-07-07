@@ -11,6 +11,74 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <header>
+      <div class="container">
+        <div class="row header-row">
+          <div class="col">LOGO</div>
+          <div class="col">+7 999 999 77 77</div>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <div class="container">
+        <div class="row">
+
+          <div class="col menu-part">
+            <div class="row left-menu">
+              <% if user_signed_in? %>
+                <% if current_user.access_level == 1 %>
+                  <div class="col menu-item"><%= link_to t('.administration'), admin_index_path %></div>
+                <% else %>
+                  <div class="col menu-item"><%= link_to 'Store' %></div>
+                <% end %>
+              <% end %>
+              <div class="col menu-item"><%= link_to t('.items'), items_path %></div>
+              <div class="col menu-item"><%= link_to t('.categories'), categories_path %></div>
+            </div>
+          </div>
+
+          <div class="col menu-part">
+            <div class="row right-menu">
+              <% if user_signed_in? %>
+                <div class="col menu-item"><%= link_to t('.orders'), orders_path %></div>
+                <div class="col menu-item"><%= link_to t('.cart'), cart_path %></div>
+                <div class="col menu-item"><%= link_to t('.exit'), destroy_user_session_path, data: { 'turbo-method': :delete } %></div>
+              <% else %>
+                <div class="col menu-item"><%= link_to t('.entrance'), new_user_session_path %></div>
+                <div class="col menu-item"><%= link_to t('.registration'), new_user_registration_path %></div>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="container">
+
+        <% if notice %>
+          <div class="message notice"><%= notice %></div>
+        <% end %>
+        <% if alert %>
+          <div class="message alert"><%= alert %></div>
+        <% end %>
+
+        <%= yield %>
+
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row footer-row">
+          <div class="col">&copy; 2022</div>
+          <div class="col">Hello, world!</div>
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>
